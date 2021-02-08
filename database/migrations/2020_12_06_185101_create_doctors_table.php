@@ -17,12 +17,11 @@ class CreateDoctorsTable extends Migration
             $table->id('doctor_id');
             $table->string('name');
             $table->string('doctor_email');
-            $table->text('doctor_degree');
-            $table->text('institute_professor');
+            $table->text('doctor_specilization');
             $table->string('doctor_phone');
-            $table->string('duty_time');
-            $table->string('patient_view');
+            $table->string('consultency_fee');
             $table->string('image');
+            $table->string('password');
             $table->tinyInteger('doctor_status')->default('0');
             $table->timestamps();
         });

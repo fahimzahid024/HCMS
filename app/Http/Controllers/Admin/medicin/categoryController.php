@@ -44,4 +44,11 @@ class categoryController extends Controller
         $products = Product::where('cat_id',$category_id)->get();
         return view('user.category_wise_product',compact('products',$products));
     }
+
+    public function delete_category($id){
+        $delete_doctor = Category::where('category_id',$id)
+                         ->delete();
+        Session::flash('success','Category Deleted Successfully!');
+        return redirect()->back();
+    }
 }

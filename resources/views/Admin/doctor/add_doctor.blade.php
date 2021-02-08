@@ -19,9 +19,15 @@
                                 {{ Session('error') }}
                             </div>
                         @endif
-                        <div class="card-header text-center">
-                            <h1 style="color: wheat;"> Add Doctor</h1>
+                        <div class="card-header">
+                            <div class="text-center">
+                                <h1 style="color: wheat;" > Add Doctor</h1>
+                            </div>
+                            <div class="float-right">
+                                <a href="{{ route('view-doctor') }}"><button class="btn btn-success" style="color: wheat;"> View Doctor</button></a>
+                            </div>
                         </div>
+                        
                         <div class="card-body">
                             <form method="POST" action="{{ route('save-doctor') }}" enctype="multipart/form-data">
                                 @csrf
@@ -62,15 +68,15 @@
 
                                 <div class="form-group row">
                                     <label for="consultancy"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Degree') }}</label>
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Doctor Specialization') }}</label>
 
                                     <div class="col-md-6">
-                                        <textarea class="form-control" name="degree" id="exampleFormControlTextarea1"
-                                            class="form-control @error('degree') is-invalid @enderror"
-                                            value="{{ old('degree') }}" required rows="3" autocomplete="degree"
+                                        <textarea class="form-control" name="doctor_specilaization" id="exampleFormControlTextarea1"
+                                            class="form-control @error('doctor_specilaization') is-invalid @enderror"
+                                            value="{{ old('doctor_specilaization') }}" required rows="3" autocomplete="degree"
                                             autofocus></textarea>
 
-                                        @error('degree')
+                                        @error('doctor_specilaization')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -78,34 +84,17 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Institute Professor') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="institute_professor" type="text"
-                                            class="form-control @error('institute_professor') is-invalid @enderror"
-                                            name="institute_professor" value="{{ old('institute_professor') }}"
-                                            autocomplete="institute_professor">
-
-                                        @error('institute_professor')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
 
                                 <div class="form-group row">
                                     <label for="email"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="phone" type="text"
-                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                            value="{{ old('phone') }}" required autocomplete="phone">
+                                        <input id="doctor_phone" type="text"
+                                            class="form-control @error('doctor_phone') is-invalid @enderror" name="doctor_phone"
+                                            value="{{ old('doctor_phone') }}" required autocomplete="doctor_phone">
 
-                                        @error('phone')
+                                        @error('doctor_phone')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -115,14 +104,14 @@
 
                                 <div class="form-group row">
                                     <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Duty Hours') }}</label>
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Consultency Fee') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="duty" type="text"
-                                            class="form-control @error('duty') is-invalid @enderror" name="duty"
-                                            value="{{ old('duty') }}" required autocomplete="duty" autofocus>
+                                        <input id="consultency_fee" type="text"
+                                            class="form-control @error('consultency_fee') is-invalid @enderror" name="consultency_fee"
+                                            value="{{ old('consultency_fee') }}" required autocomplete="consultency_fee">
 
-                                        @error('duty')
+                                        @error('consultency_fee')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -131,16 +120,17 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('View Patient Daily') }}</label>
+                                    <label for="password"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="view_patient" type="text"
-                                            class="form-control @error('view_patient') is-invalid @enderror"
-                                            name="view_patient" value="{{ old('view_patient') }}" required
-                                            autocomplete="view_patient" autofocus>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                            value="{{ old('password') }}">
+                                        @error('password')
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        @enderror
 
-                                        @error('view_patient')
+                                        @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -148,6 +138,27 @@
                                     </div>
                                 </div>
 
+
+
+
+                                <div class="form-group row">
+                                    <label for="password_confirmation"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"
+                                            value="{{ old('password') }}">
+                                        @error('password')
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        @enderror
+
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label for="email"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Doctor Image') }}</label>
@@ -166,6 +177,8 @@
                                         @enderror
                                     </div>
                                 </div>
+
+
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">

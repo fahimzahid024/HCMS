@@ -26,9 +26,21 @@ Route::get('/doctor','User\homePageController@doctor')->name('view-doctor');
 Route::get('/clinic','User\homePageController@clinic')->name('view-clinic');
 
 // -----------------------Doctor Controller -------------------
+Route::get('/home/doctor', 'User\LoginController@user')->name('user');
+Route::get('/home/doctor', 'User\LoginController@doctor')->name('doctor');
+Route::get('/home/doctor', 'User\LoginControlleSr@admin')->name('admin');
+
+
+
+
+// ------------------------------------------------------------
 Route::get('/home/add-doctor', 'Admin\doctor\doctorController@add_doctor')->name('add-doctor');
 Route::get('/home/manage-doctor', 'Admin\doctor\doctorController@manage_doctor')->name('manage-doctor');
 Route::post('/home/save-doctor', 'Admin\doctor\doctorController@save_doctor')->name('save-doctor');
+Route::get('/home/delete-doctor/{doctor_id}', 'Admin\doctor\doctorController@delete_doctor')->name('delete-doctor');
+Route::get('/home/doctor-login', 'Admin\doctor\doctorController@doctor_login')->name('doctor-login');
+Route::post('/home/doctor-login-process', 'Admin\doctor\doctorController@doctor_login_process')->name('doctor-login-process');
+Route::get('/home/doctor-profile', 'Admin\doctor\doctorController@doctor_profile')->name('doctor-profile');
 
 
 // -----------------------Add Clinic Controller -------------------
@@ -39,6 +51,7 @@ Route::get('/home/save-clinic', 'Admin\clinic\clinicController@manage_clinic')->
 Route::get('/home/manage-category', 'Admin\medicin\categoryController@manage_category')->name('manage-category');
 Route::post('/home/save-category', 'Admin\medicin\categoryController@save_category')->name('save-category');
 Route::get('/home/view-category', 'Admin\medicin\categoryController@view_category')->name('view-category');
+Route::get('/home/delete-category/{id}', 'Admin\medicin\categoryController@delete_category')->name('delete-category');
 Route::get('/home/category-wise-product/{category_id}', 'Admin\medicin\categoryController@category_wise_product')->name('category-wise-product');
 
 
@@ -47,6 +60,4 @@ Route::get('/home/category-wise-product/{category_id}', 'Admin\medicin\categoryC
 Route::get('/home/manage-product', 'Admin\medicin\productController@manage_product')->name('manage-product');
 Route::post('/home/save-product', 'Admin\medicin\productController@save_product')->name('save-product');
 Route::get('/home/view-product', 'Admin\medicin\productController@view_product')->name('view-product');
-
-
-
+Route::get('/home/delete-product/{id}', 'Admin\medicin\productController@delete_product')->name('delete-product');

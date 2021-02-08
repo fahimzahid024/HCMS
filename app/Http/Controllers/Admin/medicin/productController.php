@@ -44,4 +44,11 @@ class productController extends Controller
         $getData = Product::orderBy('product_id','DESC')->get();
         return view('Admin.product.view_product',compact('getData'));
     }
+
+    public function delete_product($id){
+        $delete_doctor = Product::where('product_id',$id)
+                         ->delete();
+        Session::flash('success','Product Deleted Successfully!');
+        return redirect()->back();
+    }
 }

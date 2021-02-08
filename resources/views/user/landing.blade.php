@@ -44,7 +44,7 @@
 
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
+    <!-- <section id="services" class="services">
         <div class="container">
 
             <div class="section-title">
@@ -73,10 +73,14 @@
 
 
 
-            </div>
+            </div> 
+
+            
 
         </div>
-    </section><!-- End Services Section -->
+    </section>
+    -->
+<!-- End Services Section -->
 
 
     <!-- ======= Doctors Section ======= -->
@@ -84,28 +88,51 @@
         <div class="container">
 
             <div class="section-title">
-                <h2>Doctors</h2>
+                <h2>Services</h2>
 
             </div>
 
             <div class="row">
-                @foreach ($doctorData as $item)
-                    <div class="col-lg-6 mt-4 mt-lg-0">
+                
+                    
+                    <div class="col-lg-4 mt-4 mt-lg-0">
                         <div class="member d-flex align-items-start">
-                            <div class="pic"><img src="{{ '/images/' . $item->image }}" class="img-fluid" alt=""></div>
+                            <a href=""><div class=""><i class="fas fa-users" style="font-size:100px"></i></div></a>
                             <div class="member-info">
-                                <h4>{{ $item->name }}</h4>
-                                <span>{{ $item->doctor_degree }}</span>
-                                <p>{{ $item->duty_time }}</p>
-                                <p>{{ $item->doctor_email }}</p>
-                                <p>{{ $item->doctor_phone }}</p>
+                                <a href=""><h4>User</h4></a>
+                                <span></span>
+                                <p> </p>
+                                <p>  </p>
+                                <p>    </p>
                             </div>
                         </div>
                     </div>
 
-                @endforeach
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="member d-flex align-items-start">
+                            <a href="{{ route('doctor-login') }}"><div class=""><i class="fas fa-user-md" style="font-size:100px"></i></div></a>
+                            <div class="member-info">
+                                <h4>Doctor</h4>
+                                <span></span>
+                                <p> </p>
+                                <p>  </p>
+                                <p>    </p>
+                            </div>
+                        </div>
+                    </div>
 
-
+                    <div class="col-lg-4 mt-4 mt-lg-0">
+                        <div class="member d-flex align-items-start">
+                            <a href="{{ route('home') }}"><div class=""><i class="fas fa-users-cog" style="font-size:100px"></i></div></a>
+                            <div class="member-info">
+                                <h4>Admin</h4>
+                                <span></span>
+                                <p> </p>
+                                <p>  </p>
+                                <p>    </p>
+                            </div>
+                        </div>
+                    </div>
 
 
             </div>

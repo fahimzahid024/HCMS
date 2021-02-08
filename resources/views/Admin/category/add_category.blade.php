@@ -19,11 +19,13 @@
                                 {{ Session('error') }}
                             </div>
                         @endif
-                        <div class="card-header text-center">
-                            <h1 style="color: wheat;"> Add Category</h1>
-                            <a href="{{ route('view-category') }}">
-                                <h1>View Category</h1>
-                            </a>
+                        <div class="card-header">
+                            <div class="text-center">
+                                <h1 style="color: wheat;" > Add Category</h1>
+                            </div>
+                            <div class="float-right">
+                                <a href="{{ route('view-category') }}"><button class="btn btn-success" style="color: wheat;"> View Category</button></a>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('save-category') }}" enctype="multipart/form-data">
