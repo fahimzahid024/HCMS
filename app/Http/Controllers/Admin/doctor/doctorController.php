@@ -23,12 +23,11 @@ class doctorController extends Controller
 
         $this->validate($request,[
             'name' => 'required',
+            'view_patient' => 'required',
             'email' => 'required|email',
             'doctor_specilaization' => 'required',
             'doctor_phone' => 'required',
-            'password' => 'required',
             'consultency_fee' => 'required',
-            'password' => 'required|min:6|confirmed',
             'image' => 'required|image|file|mimes:jpeg,png,PNG,jpg,gif,svg|max:2048'
         ]);
         if($files = $request -> file('image'))
@@ -44,7 +43,7 @@ class doctorController extends Controller
             $doctor -> doctor_email = $request -> email;
             $doctor -> doctor_specilization = $request -> doctor_specilaization;
             $doctor -> doctor_phone = $request -> doctor_phone;
-            $doctor -> password=\Crypt::encrypt($request -> password);
+            $doctor -> view_patient = $request -> view_patient;
             $doctor -> consultency_fee = $request -> consultency_fee;
             $doctor -> image = "$profileImage";
             $doctor->save();
@@ -71,13 +70,14 @@ class doctorController extends Controller
     }
 
     public function doctor_login_process(Request $request){
-        $this->validate($request,[
-            'email' => 'required|email',
-            'phone' => 'required',
-        ]);
+        // $this->validate($request,[
+        //     'email' => 'required|email',
+        //     'phone' => 'required',
+        // ]);
         
         $email = $request->email;
         $password = $request->phone;
+        dd($email,$password);
         
     
         $result = DB::table('doctors')
@@ -110,8 +110,6 @@ class doctorController extends Controller
     }
 
 
-    public function doctor_profile(){
-        return view('Admin.doctor.doctor_profile');
-    }
+    
 
 }

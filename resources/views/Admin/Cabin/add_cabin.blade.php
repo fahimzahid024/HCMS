@@ -21,132 +21,120 @@
                         @endif
                         <div class="card-header">
                             <div class="text-center">
-                                <h1 style="color: wheat;" > Add Doctor</h1>
+                                <h1 style="color: wheat;" > Add Cabin</h1>
                             </div>
                             <div class="float-right">
-                                <a href="{{ route('manage-doctor') }}"><button class="btn btn-success" style="color: wheat;"> View Doctor</button></a>
+                                <a href="{{ route('view-cabin') }}"><button class="btn btn-success" style="color: wheat;"> View Cabin</button></a>
                             </div>
                         </div>
-                        
                         <div class="card-body">
-                            <form method="POST" action="{{ route('save-doctor') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('save-cabin') }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row">
-                                    <label for="name"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Doctor Name') }}</label>
+                                    <label for="cabin_number"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Cabin Number') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input id="cabin_number" type="text"
+                                            class="form-control @error('cabin_number') is-invalid @enderror" name="cabin_number"
+                                            value="{{ old('cabin_number') }}" required autocomplete="cabin_number" autofocus>
 
-                                        @error('name')
+                                        @error('cabin_number')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="view_patient"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Patient View') }}</label>
+                                    <label for="cabin_room"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Bed Room') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="view_patient" type="text"
-                                            class="form-control @error('view_patient') is-invalid @enderror" name="view_patient"
-                                            value="{{ old('view_patient') }}" required autocomplete="view_patient" autofocus>
+                                        <input id="cabin_room" type="text"
+                                            class="form-control @error('cabin_room') is-invalid @enderror" name="cabin_room"
+                                            value="{{ old('cabin_number') }}" required autocomplete="cabin_room" autofocus>
 
-                                        @error('view_patient')
+                                        @error('cabin_room')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    <label for="floor"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Floor') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="floor" type="text"
+                                            class="form-control @error('floor') is-invalid @enderror" name="floor"
+                                            value="{{ old('cabin_number') }}" required autocomplete="floor" autofocus>
 
-                                        @error('email')
+                                        @error('floor')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="consultancy"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Doctor Specialization') }}</label>
+                                    <label for="bathroom"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Wash Room') }}</label>
 
                                     <div class="col-md-6">
-                                        <textarea class="form-control" name="doctor_specilaization" id="exampleFormControlTextarea1"
-                                            class="form-control @error('doctor_specilaization') is-invalid @enderror"
-                                            value="{{ old('doctor_specilaization') }}" required rows="3" autocomplete="degree"
-                                            autofocus></textarea>
+                                        <input id="bathroom" type="text"
+                                            class="form-control @error('bathroom') is-invalid @enderror" name="bathroom"
+                                            value="{{ old('bathroom') }}" required autocomplete="bathroom" autofocus>
 
-                                        @error('doctor_specilaization')
+                                        @error('bathroom')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
-
-
                                 <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                                    <label for="total_bed"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Total Bed') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="doctor_phone" type="text"
-                                            class="form-control @error('doctor_phone') is-invalid @enderror" name="doctor_phone"
-                                            value="{{ old('doctor_phone') }}" required autocomplete="doctor_phone">
+                                        <input id="total_bed" type="text"
+                                            class="form-control @error('total_bed') is-invalid @enderror" name="total_bed"
+                                            value="{{ old('total_bed') }}" required autocomplete="total_bed" autofocus>
 
-                                        @error('doctor_phone')
+                                        @error('total_bed')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
-
                                 <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Consultency Fee') }}</label>
+                                    <label for="price"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Booking Price') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="consultency_fee" type="text"
-                                            class="form-control @error('consultency_fee') is-invalid @enderror" name="consultency_fee"
-                                            value="{{ old('consultency_fee') }}" required autocomplete="consultency_fee">
+                                        <input id="cabin_number" type="text"
+                                            class="form-control @error('price') is-invalid @enderror" name="price"
+                                            value="{{ old('price') }}" required autocomplete="price" autofocus>
 
-                                        @error('consultency_fee')
+                                        @error('price')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
                                     </div>
                                 </div>
-
-                               
                                 <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Doctor Image') }}</label>
+                                    <label for="image"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
 
                                     <div class="col-md-6">
-                                        <input type="file" class="form-control" name="image" id="image"
-                                            value="{{ old('image') }}">
-                                        @error('image')
-                                            <strong class="text-danger">{{ $message }}</strong>
-                                        @enderror
+                                        <input id="image" type="file"
+                                            class="form-control @error('image') is-invalid @enderror" name="image"
+                                            value="{{ old('image') }}" required autocomplete="image" autofocus>
 
                                         @error('image')
                                             <span class="invalid-feedback" role="alert">
@@ -155,13 +143,11 @@
                                         @enderror
                                     </div>
                                 </div>
-
-
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-success">
-                                            {{ __('Add Doctor') }}
+                                            {{ __('Add Cabin') }}
                                         </button>
                                     </div>
                                 </div>

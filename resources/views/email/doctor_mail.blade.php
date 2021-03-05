@@ -8,7 +8,7 @@ Welcome Doctor {{ $doctor->name }}
 <strong>Specialization: {{ $doctor->doctor_specilization }}</strong><br>
 <strong>Contact: {{ $doctor->doctor_phone }}</strong><br>
 <strong>Consultency fee:{{ $doctor->consultency_fee }}</strong><br>
-<strong>Password: {{ \Crypt::decrypt($doctor->password)}}</strong><br>
+<strong>Password: Is Your Phone Number</strong><br>
 
 @component('mail::button', ['url' => ''])
 view your profile

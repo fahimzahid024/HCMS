@@ -2,7 +2,7 @@
 
 @section('content')
     <section class="header">
-        <h1>Health Care Is Our Vission</h1>
+        <h1>Health Care Is Our Vision</h1>
     </section>
     <section>
         <div class="container">
@@ -19,21 +19,23 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Category(Medicin)</h5>
+                            <h5 class="card-title">Cabin</h5>
 
-                            <a href="{{ route('manage-category') }}" class="btn btn-primary">Manage Category</a>
+                            <a href="{{ route('manage-cabin') }}" class="btn btn-primary">Manage Cabin</a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Product(Medicin)</h5>
+                            <h5 class="card-title">Cabin Booking List</h5>
 
-                            <a href="{{ route('manage-product') }}" class="btn btn-primary">Manage Product</a>
+                            <a href="{{ route('manage-cabin-booking') }}" class="btn btn-primary">Manage Cabin Booking</a>
                         </div>
                     </div>
                 </div>
+                
             </div>
 
 

@@ -8,7 +8,7 @@ class doctor extends Model
 {
     protected $fillable = [
         'name', 'doctor_email', 'doctor_specilization', 'doctor_phone', 'consultency_fee'
-        ,'image','password',
+        ,'image','password','view_patient',
     ];
 }
 

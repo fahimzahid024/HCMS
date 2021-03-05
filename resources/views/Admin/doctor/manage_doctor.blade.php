@@ -37,14 +37,13 @@
                                     <tr>
 
                                         <th scope="row">{{ $item->doctor_id }}</th>
-                                        <td>{{ $item->doctor_name }}</td>
+                                        <td>{{ $item->name }}</td>
                                         <td>{{ $item->doctor_email }}</td>
                                         <td><img style="height: 60px; width:60px;"
                                                 src="{{ asset('/images/' . $item->image) }}" alt=""></td>
 
                                         <td>
-                                            <a href="" class="btn btn-primary btn-xs"><i class="fa fa-thumbs-up"></i></a>
-                                            <a href="" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                            <a href="{{ url('/delete-doctor/'.$item->doctor_id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
                                             <a href="" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
 
                                         </td>
