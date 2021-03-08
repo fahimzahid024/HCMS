@@ -26,7 +26,7 @@ $patient_info = DB::table('patiants')->where('id',Session::get('patient_id'))->f
                   <label for="exampleInputEmail1">Email</label>
                   <input type="email" class="form-control" name="email" value="{{$patient_info->email}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                   </div>
-                <button type="submit" class="btn btn-primary">Cabin Booking</button>
+                <button type="submit" class="btn btn-primary">Ticket Booking</button>
               </form>
         </div>
       </div>

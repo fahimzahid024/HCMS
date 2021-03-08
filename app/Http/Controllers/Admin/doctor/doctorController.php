@@ -110,6 +110,30 @@ class doctorController extends Controller
     }
 
 
+    public function edit_doctor($id){
+        $edit_doctor = doctor::where('doctor_id',$id)->first();
+        return view('Admin.doctor.edit-doctor')->with('edit_doctor',$edit_doctor);
+    }
+
+    public function update_doctor($id,Request $request){
+        $update_cabin = DB::table('doctors')->where('doctor_id',$id)
+                        ->update([
+                        'name' => $request->name,
+                        'view_patient' => $request->view_patient,
+                        'doctor_email' => $request->email,
+                        'doctor_specilization' => $request->doctor_specilaization,
+                        'doctor_phone' => $request->doctor_phone,
+                        'consultency_fee' => $request->consultency_fee,
+                        ]);
+        if($update_cabin){
+            Session::flash('success','Doctor Updated Successfully!');
+            return redirect()->route('manage-doctor');
+        }else{
+            Session::flash('success','Doctor Not Updated!');
+            return redirect()->route('manage-doctor');
+        }
+        
+    }
     
 
 }

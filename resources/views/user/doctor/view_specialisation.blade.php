@@ -20,15 +20,17 @@
                             </div>
                         @endif
                         <div class="card-header text-center">
-                            <h1 style="color: wheat;"> Add Doctor</h1>
+                            <h1 style="color: wheat;"> Manage Spaciality</h1>
+                            <div class="float-right">
+                                <a href="{{ route('doctor-cateogry') }}"><button class="btn btn-success" style="color: wheat;"> Add Spaciality</button></a>
+                            </div>
                         </div>
+                        
                         <table class="table table-dark">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">email</th>
-                                    <th scope="col">Doctor Image</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
@@ -36,15 +38,12 @@
                                 @foreach ($getData as $item)
                                     <tr>
 
-                                        <th scope="row">{{ $item->doctor_id }}</th>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->doctor_email }}</td>
-                                        <td><img style="height: 60px; width:60px;"
-                                                src="{{ asset('/images/' . $item->image) }}" alt=""></td>
+                                        <th scope="row">{{ $item->id }}</th>
+                                        <td>{{ $item->name_spaciality }}</td>
 
                                         <td>
-                                            <a href="{{ url('/delete-doctor/'.$item->doctor_id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
-                                            <a href="{{ url('/edit-doctor/'.$item->doctor_id) }}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ url('/delete-category/'.$item->id) }}" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                                            {{-- <a href="" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a> --}}
 
                                         </td>
 

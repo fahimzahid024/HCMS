@@ -79,8 +79,22 @@ Route::get('/home/delete-product/{id}', 'Admin\medicin\productController@delete_
 Route::get('/home/doctor-login','User\doctor\doctorController@index')->name('doctor-login');
 Route::get('/home/doctor/doctor-profile', 'User\doctor\doctorController@doctor_profile')->name('doctor-profile');
 Route::post('/home/doctor-login-process','User\doctor\doctorController@doctor_login_process')->name('doctor-login-process');
+Route::get('/edit-profile/{id}', 'User\doctor\doctorController@edit_profile')->name('edit-profile');
+Route::post('/update-profile/{id}', 'User\doctor\doctorController@update_profile');
 Route::get('/delete-patient/{id}', 'User\doctor\doctorController@delete_patient')->name('delete-patient');
 
+// update
+Route::get('/edit-doctor/{id}', 'Admin\doctor\doctorController@edit_doctor');
+Route::post('/update-doctor/{id}', 'Admin\doctor\doctorController@update_doctor');
+
+Route::get('/doctor-category/', 'User\doctor\doctorController@doctor_category')->name('doctor-cateogry');
+Route::post('/add-category/', 'User\doctor\doctorController@save_specialisation')->name('save-specialisation');
+Route::get('/add-category/', 'User\doctor\doctorController@view_specialisation')->name('view-specialisation');
+Route::get('/category/{id}','User\doctor\doctorController@category_wise_product');
+Route::get('/delete-category/{id}','User\doctor\doctorController@delete_category');
+
+Route::post('/add-rating/{id}','User\doctor\doctorController@save_rating')->name('add-rating');
+Route::get('/give-rating/{id}','User\doctor\doctorController@add_rating');
 
 // ----------------------- Cabin Controller -------------------//
 Route::get('/home/manage-cabin', 'Admin\cabin\CabinController@manage_cabin')->name('manage-cabin');

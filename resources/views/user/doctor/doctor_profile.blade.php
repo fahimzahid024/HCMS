@@ -46,7 +46,7 @@
                 <p>{{ $getDoctor->doctor_specilization }}</p>
                 <p>{{ $getDoctor->doctor_phone }}</p>
                 <p>{{ $getDoctor->consultency_fee }}</p>
-                <button class="btn btn-info">Edit Profile</button>
+                <a href="{{ url('/edit-profile/'.$getDoctor->doctor_id) }}"><button class="btn btn-info">Edit Profile</button></a>
               </div>
             </div>
           </div>

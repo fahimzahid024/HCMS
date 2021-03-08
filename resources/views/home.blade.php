@@ -10,6 +10,15 @@
                 <div class="col-sm-3">
                     <div class="card">
                         <div class="card-body">
+                            <h5 class="card-title">Doctor Category</h5>
+
+                            <a href="{{ route('doctor-cateogry') }}" class="btn btn-primary">Doctor Category</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
                             <h5 class="card-title">Doctor</h5>
 
                             <a href="{{ route('add-doctor') }}" class="btn btn-primary">Manage</a>

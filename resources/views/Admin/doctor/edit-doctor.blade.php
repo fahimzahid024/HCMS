@@ -21,7 +21,7 @@
                         @endif
                         <div class="card-header">
                             <div class="text-center">
-                                <h1 style="color: wheat;" > Add Doctor</h1>
+                                <h1 style="color: wheat;" > Edit Doctor</h1>
                             </div>
                             <div class="float-right">
                                 <a href="{{ route('manage-doctor') }}"><button class="btn btn-success" style="color: wheat;"> View Doctor</button></a>
@@ -29,7 +29,7 @@
                         </div>
                         
                         <div class="card-body">
-                            <form method="POST" action="{{ route('save-doctor') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url('/update-doctor/'.$edit_doctor->doctor_id) }}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row">
@@ -39,7 +39,7 @@
                                     <div class="col-md-6">
                                         <input id="name" type="text"
                                             class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                            value="{{ $edit_doctor->name }}" required autocomplete="name" autofocus>
 
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                                     <div class="col-md-6">
                                         <input id="view_patient" type="text"
                                             class="form-control @error('view_patient') is-invalid @enderror" name="view_patient"
-                                            value="{{ old('view_patient') }}" required autocomplete="view_patient" autofocus>
+                                            value="{{ $edit_doctor-> view_patient}}" required autocomplete="view_patient" autofocus>
 
                                         @error('view_patient')
                                             <span class="invalid-feedback" role="alert">
@@ -73,7 +73,7 @@
                                     <div class="col-md-6">
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" required autocomplete="email">
+                                            value="{{ $edit_doctor-> doctor_email }}" required autocomplete="email">
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -88,16 +88,10 @@
                                         class="col-md-4 col-form-label text-md-right">{{ __('Doctor Specialization') }}</label>
 
                                     <div class="col-md-6">
-                                        
-                                        @php 
-                                        $speciality = DB::table('spacialities')->get();
-                                        @endphp
-                                        
-                                            <select  class="form-control form-select" value="{{ old('doctor_specilaization') }}" name="doctor_specilaization" aria-label="Default select example">
-                                                @foreach($speciality as $item)
-                                                    <option value="{{ $item->id }}" >{{ $item->name_spaciality }}</option>
-                                                @endforeach
-                                            </select>
+                                        <textarea class="form-control" name="doctor_specilaization" id="exampleFormControlTextarea1"
+                                            class="form-control @error('doctor_specilaization') is-invalid @enderror"
+                                            value="" required rows="3" autocomplete="degree"
+                                            autofocus>{{$edit_doctor -> doctor_specilization}}</textarea>
 
                                         @error('doctor_specilaization')
                                             <span class="invalid-feedback" role="alert">
@@ -115,7 +109,7 @@
                                     <div class="col-md-6">
                                         <input id="doctor_phone" type="text"
                                             class="form-control @error('doctor_phone') is-invalid @enderror" name="doctor_phone"
-                                            value="{{ old('doctor_phone') }}" required autocomplete="doctor_phone">
+                                            value="{{ $edit_doctor-> doctor_phone}}" required autocomplete="doctor_phone">
 
                                         @error('doctor_phone')
                                             <span class="invalid-feedback" role="alert">
@@ -132,7 +126,7 @@
                                     <div class="col-md-6">
                                         <input id="consultency_fee" type="text"
                                             class="form-control @error('consultency_fee') is-invalid @enderror" name="consultency_fee"
-                                            value="{{ old('consultency_fee') }}" required autocomplete="consultency_fee">
+                                            value="{{ $edit_doctor->consultency_fee }}" required autocomplete="consultency_fee">
 
                                         @error('consultency_fee')
                                             <span class="invalid-feedback" role="alert">
@@ -142,32 +136,13 @@
                                     </div>
                                 </div>
 
-                               
-                                <div class="form-group row">
-                                    <label for="email"
-                                        class="col-md-4 col-form-label text-md-right">{{ __('Doctor Image') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input type="file" class="form-control" name="image" id="image"
-                                            value="{{ old('image') }}">
-                                        @error('image')
-                                            <strong class="text-danger">{{ $message }}</strong>
-                                        @enderror
-
-                                        @error('image')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
 
 
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-success">
-                                            {{ __('Add Doctor') }}
+                                            {{ __('Edit Doctor') }}
                                         </button>
                                     </div>
                                 </div>
